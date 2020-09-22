@@ -22,6 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using USBHIDDRIVER.USB;
 
 namespace USBHIDDRIVER
 {
@@ -42,12 +43,14 @@ namespace USBHIDDRIVER
         /// </summary>
         public static USBHIDDRIVER.List.ListWithEvent usbBuffer = new USBHIDDRIVER.List.ListWithEvent();
 
+        public HIDUSBDevice Usbdevice { get => usbdevice; private set => usbdevice = value; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="USBInterface"/> class.
         /// </summary>
         /// <param name="vid">The vendor id of the USB device (e.g. vid_06ba)</param>
         /// <param name="pid">The product id of the USB device (e.g. pid_ffff)</param>
-       public  USBInterface(string vid, string pid)
+        public  USBInterface(string vid, string pid)
         {
             this.usbVID = vid;
             this.usbPID = pid;

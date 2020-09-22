@@ -54,6 +54,8 @@ namespace USBHIDDRIVER.USB
         //thread for read operations
         protected Thread dataReadingThread;
 
+        public string DevicePath { get => devicePath; private set => devicePath = value; }
+
         /*Functions --------------------------------------------------------------------*/
 
         //---#+************************************************************************
