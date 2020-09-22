@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="G13GamingKeyboard\G13Data.cs" />
+    <Compile Include="G13GamingKeyboard\G13State.cs" />
     <Compile Include="G13GamingKeyboard\G13Engine.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />

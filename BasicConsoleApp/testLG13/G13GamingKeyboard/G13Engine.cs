@@ -6,17 +6,25 @@ using System.Threading.Tasks;
 
 namespace G13GamingKeyboard
 {
+
+
     /// <summary>
     /// Allow to acces and managed a Logitech G13 gaming keyboard
     /// </summary>
-    class G13Engine
+    public class G13Engine
     {
+        //Func<Task,G13Engine,G13State> currentStateChangeHandler;
+        Action<G13Engine, G13State> currentStateChangeHandler;
+
+        USBHIDDRIVER.USBInterface usbInterface=null; 
+
         /// <summary>
         /// Print on console the HID data packet in a readable form (binary, hex and decimal)
         /// </summary>
         /// <param name="rawData">byte arry to print</param>
-        public static void DisplayRawData(byte[] rawData)
+        public static void DebugDisplayRawData(byte[] rawData)
         {
+            Console.SetCursorPosition(0, 6);
             Console.WriteLine("RAW: ");
             for (int n = 0; n < rawData.Length; n++)
             {
@@ -36,9 +44,7 @@ namespace G13GamingKeyboard
         {
             
         }
-
-
-        USBHIDDRIVER.USBInterface usbInterface=null; 
+        
 
         /// <summary>
         /// If connected, Contains the winusbapi compatible device path to the connected devices,otherwiser string.Empty;
@@ -91,41 +97,37 @@ namespace G13GamingKeyboard
             usbInterface = null;
         }
 
+        public void RegisterStateChangeHandler(Action<G13Engine, G13State> chgHandler)
+        {
+            this.currentStateChangeHandler = chgHandler;
+        }
+
         void UsbHidEventHandler(object sender, EventArgs e)
         {
             var lst = (USBHIDDRIVER.List.ListWithEvent)sender;
             //Console.WriteLine("G13 EVENT ! : list size {0}",lst.Count);
 
-            while (lst.Count > 0)
+            while (lst.Count > 0) // iterate on each HID event.
             {
-                byte[] rawData;
+                byte[] rawHidData;
                 lock (lst)
                 {
-                    rawData = lst[0] as byte[];
+                    rawHidData = lst[0] as byte[];
                     lst.RemoveAt(0);
                 }
 
-                Console.SetCursorPosition(0, 6);
-                DisplayRawData(rawData);
-                G13Data decoded = DecodeHidRawDataForG13(rawData);
-                Console.WriteLine();
-                Console.WriteLine("DECODED:");
-                Console.WriteLine($"   STICK({decoded.X},{decoded.Y})      ");
-                Console.WriteLine($"   LIGHT= {decoded.LightOn}     ");
-                Console.Write("   PRESSED KEYS: ");
-                foreach (var kn in decoded.GetPressedKeyNames())
-                    Console.Write($" {kn} ");
-                Console.Write("                                                                                                      ");
+                
+                //DebugDisplayRawData(rawHidData); // for testing and debugging HID data packet
 
+                G13State currentState = DecodeHidRawDataForG13(rawHidData);
+
+                if (this.currentStateChangeHandler != null)
+                    this.currentStateChangeHandler(this, currentState);
             };
         }
 
-        public KeyStateEnum GetKeyState(ushort keyscancode)
-        {
-            return KeyStateEnum.RELEASED;
-        }
 
-        public G13Data DecodeHidRawDataForG13(byte[] rawData)
+        public G13State DecodeHidRawDataForG13(byte[] rawData)
         {
             // G13 HID keyboard map
             // [0] : 0   0   0   0   0   0   0   1
@@ -153,7 +155,7 @@ namespace G13GamingKeyboard
             //                       |   |CLIC_BOTTOM
             //                       |CLICK_STICK
 
-            G13Data g = new G13Data();
+            G13State g = new G13State();
             g.X = rawData[1];
             g.Y = rawData[2];
             g.LightOn = (rawData[5] & 128) != 0;

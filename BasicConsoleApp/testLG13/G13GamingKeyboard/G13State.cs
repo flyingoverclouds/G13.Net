@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace G13GamingKeyboard
 {
+    /*
     // G13 HID message (8 bytes)
     // [0] : 0   0   0   0   0   0   0   1
     //       ?   ?   ?   ?   ?   ?   ?   always1
@@ -32,12 +33,7 @@ namespace G13GamingKeyboard
     //           |B_LIGHT    |   |   |CLIC_LEFT
     //                       |   |CLIC_BOTTOM
     //                       |CLICK_STICK
-
-    enum KeyStateEnum
-    {
-        RELEASED=0,
-        PRESSED=1
-    }
+    */
 
     class G13KeyMapping
     {
@@ -77,8 +73,8 @@ namespace G13GamingKeyboard
         const ushort MAP_KEY_US4 = 0x0610; // under screen button 4
         const ushort MAP_KEY_RBLIGHT = 0x0760; // Rond button right (Light switch)
         const ushort MAP_KEY_RBLEFT  = 0x0601; // Rond button left
-        const ushort MAP_KEY_CLICKLEFT   = 0x0702; // Button left of joystick
-        const ushort MAP_KEY_CLICKBOTTOM = 0x0704; // Button bottom of joystick
+        const ushort MAP_KEY_PAGEUP   = 0x0702; // Button left of joystick
+        const ushort MAP_KEY_PAGEDOWN = 0x0704; // Button bottom of joystick
         const ushort MAP_KEY_CLICKSTICK  = 0x0708; // Button Stick pressed
 
         static readonly ushort[] _ALL_KEYS_MAPPING;
@@ -129,8 +125,8 @@ namespace G13GamingKeyboard
                 MAP_KEY_US4,
                 MAP_KEY_RBLIGHT,
                 MAP_KEY_RBLEFT,
-                MAP_KEY_CLICKLEFT,
-                MAP_KEY_CLICKBOTTOM,
+                MAP_KEY_PAGEUP,
+                MAP_KEY_PAGEDOWN,
                 MAP_KEY_CLICKSTICK
             };
             g13KeyMap = new Dictionary<string, ushort>();
@@ -166,17 +162,17 @@ namespace G13GamingKeyboard
             g13KeyMap.Add(nameof(MAP_KEY_US4), MAP_KEY_US4);
             g13KeyMap.Add(nameof(MAP_KEY_RBLIGHT), MAP_KEY_RBLIGHT);
             g13KeyMap.Add(nameof(MAP_KEY_RBLEFT), MAP_KEY_RBLEFT);
-            g13KeyMap.Add(nameof(MAP_KEY_CLICKLEFT), MAP_KEY_CLICKLEFT);
-            g13KeyMap.Add(nameof(MAP_KEY_CLICKBOTTOM), MAP_KEY_CLICKBOTTOM);
+            g13KeyMap.Add(nameof(MAP_KEY_PAGEUP), MAP_KEY_PAGEUP);
+            g13KeyMap.Add(nameof(MAP_KEY_PAGEDOWN), MAP_KEY_PAGEDOWN);
             g13KeyMap.Add(nameof(MAP_KEY_CLICKSTICK), MAP_KEY_CLICKSTICK);
         }
     }
 
-    class G13Data
+    public class G13State
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public bool LightOn { get; set; }
+        public int X { get; internal set; }
+        public int Y { get; internal set; }
+        public bool LightOn { get; internal set; }
 
         public List<ushort> PressedKey { get; private set; }
 
@@ -202,7 +198,7 @@ namespace G13GamingKeyboard
             return l;
         }
 
-        public G13Data()
+        public G13State()
         {
             PressedKey = new List<ushort>();
         }
