@@ -165,8 +165,8 @@ namespace G13GamingKeyboard
 
             // [7] : 0   0   0   0   0   0   0   0
             //       1?  |__/        |   |   |   M4
-            //           |B_LIGHT    |   |   |CLIC_LEFT
-            //                       |   |CLIC_BOTTOM
+            //           |B_LIGHT    |   |   |PAGE_UP
+            //                       |   |PAGE_DOWN
             //                       |CLICK_STICK
 
             G13State g = new G13State();
