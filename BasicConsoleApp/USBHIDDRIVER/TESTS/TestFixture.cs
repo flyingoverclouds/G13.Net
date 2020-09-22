@@ -60,16 +60,16 @@ namespace USBHIDDRIVER.TESTS
         {
               
             sendStartCMD();
-            usbI.enableUsbBufferEvent(new System.EventHandler(myEventCacher));
+            usbI.EnableUsbBufferEvent(new System.EventHandler(myEventCacher));
             Thread.Sleep(5);
-            usbI.startRead();
+            usbI.StartRead();
             Thread.Sleep(5);
             for (int i = 0; i < 200; i++)
             {
                 Assert.IsNotNull(USBHIDDRIVER.USBInterface.usbBuffer);
                 Thread.Sleep(2);
             }
-            usbI.stopRead();
+            usbI.StopRead();
             sendStopCMD(); 
         }
 
@@ -96,8 +96,8 @@ namespace USBHIDDRIVER.TESTS
         {
             sendStartCMD();
 
-            usbI.enableUsbBufferEvent(new System.EventHandler(myEventCacher));
-            usbI.startRead();
+            usbI.EnableUsbBufferEvent(new System.EventHandler(myEventCacher));
+            usbI.StartRead();
 
             //wait a little bit
             for (int i = 0; i < 100; i++)
