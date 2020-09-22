@@ -33,7 +33,7 @@ namespace testLG13
 
             // Logitech G13 on my dev system :  \\?\hid#vid_046d&pid_c21c#7&372657bd&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
 
-            var g13engine = new G13GamingKeyboard.G13Engine();
+            var g13engine = new G13Engine();
 
             g13engine.RegisterStateChangeHandler((g, g13state) =>
             {

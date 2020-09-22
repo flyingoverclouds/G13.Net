@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using testLG13.G13GamingKeyboard;
 
 namespace G13GamingKeyboard
 {
@@ -15,6 +16,9 @@ namespace G13GamingKeyboard
     {
         //Func<Task,G13Engine,G13State> currentStateChangeHandler;
         Action<G13Engine, G13State> currentStateChangeHandler;
+        Action<G13Engine, G13KeyState> currentKeyStateChangeHandler;
+        Action<G13Engine, G13StickState> currentStickStateChangeHandler;
+
 
         USBHIDDRIVER.USBInterface usbInterface=null; 
 
@@ -100,6 +104,16 @@ namespace G13GamingKeyboard
         public void RegisterStateChangeHandler(Action<G13Engine, G13State> chgHandler)
         {
             this.currentStateChangeHandler = chgHandler;
+        }
+
+        public void RegisterKeyStateChangeHandler(Action<G13Engine, G13KeyState> kchgHandler)
+        {
+            this.currentKeyStateChangeHandler = kchgHandler;
+        }
+
+        public void RegisterStickStateChangeHandler(Action<G13Engine, G13StickState> schgHandler)
+        {
+            this.currentStickStateChangeHandler = schgHandler;
         }
 
         void UsbHidEventHandler(object sender, EventArgs e)

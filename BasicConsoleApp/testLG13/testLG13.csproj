@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="G13GamingKeyboard\G13KeyState.cs" />
     <Compile Include="G13GamingKeyboard\G13State.cs" />
     <Compile Include="G13GamingKeyboard\G13Engine.cs" />
+    <Compile Include="G13GamingKeyboard\G13StickState.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
