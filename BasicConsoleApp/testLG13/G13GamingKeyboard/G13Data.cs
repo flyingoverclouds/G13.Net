@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace G13GamingKeyboard
 {
-    // G13 HID keyboard map
+    // G13 HID message (8 bytes)
     // [0] : 0   0   0   0   0   0   0   1
     //       ?   ?   ?   ?   ?   ?   ?   always1
 
