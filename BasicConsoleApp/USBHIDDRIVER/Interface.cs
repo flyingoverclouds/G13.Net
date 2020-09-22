@@ -153,7 +153,7 @@ namespace USBHIDDRIVER
         /// Starts reading. 
         /// If you execute this command a thread is started which listens to the USB device and waits for data.
         /// </summary>
-        public void startRead()
+        public void StartRead()
         {
             this.usbdevice.readData();
         }
@@ -162,7 +162,7 @@ namespace USBHIDDRIVER
         /// Stops the read thread.
         /// By executing this command the read data thread is stopped and now data will be received.
         /// </summary>
-        public void stopRead()
+        public void StopRead()
         {
             this.usbdevice.readData();
         }
@@ -173,7 +173,7 @@ namespace USBHIDDRIVER
         /// the event handler method will be called.
         /// </summary>
         /// <param name="eHandler">The event handler method.</param>
-        public void enableUsbBufferEvent(System.EventHandler eHandler)
+        public void EnableUsbBufferEvent(System.EventHandler eHandler)
         {
             usbBuffer.Changed += eHandler;
         }
