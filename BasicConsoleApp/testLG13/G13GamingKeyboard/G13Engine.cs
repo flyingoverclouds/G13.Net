@@ -140,8 +140,7 @@ namespace G13GamingKeyboard
             };
         }
 
-
-        public G13State DecodeHidRawDataForG13(byte[] rawData)
+        G13State DecodeHidRawDataForG13(byte[] rawData)
         {
             // G13 HID keyboard map
             // [0] : 0   0   0   0   0   0   0   1
