@@ -414,7 +414,7 @@ namespace USBHIDDRIVER.USB
         /// </summary>
         public void disconnectDevice()
         {
-            usbThread.Abort();
+            usbThread?.Abort();
             myUSB.CT_CloseHandle(myUSB.HidHandle);
         }
 
