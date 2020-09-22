@@ -533,7 +533,9 @@ namespace USBHIDDRIVER.USB
             int requiredSize = 0;
             int numberOfDevices = 0;
             //search the device until you have found it or no more devices in list
-            
+
+            string deviceID = this.vendorID;
+            string productID = this.productID;
             while (result != 0)
             {
                 //open the device
@@ -545,11 +547,22 @@ namespace USBHIDDRIVER.USB
                 resultb = myUSB.CT_SetupDiGetDeviceInterfaceDetailx(ref requiredSize, size);
 
                 //is this the device i want?
-                string deviceID = this.vendorID;
+                
                 if (myUSB.DevicePathName.IndexOf(deviceID) > 0)
                 {
-                    devices.Add(myUSB.DevicePathName);
-                    numberOfDevices++;
+                    if (string.IsNullOrEmpty(productID)) // if no product Id specified
+                    {
+                        devices.Add(myUSB.DevicePathName);
+                        numberOfDevices++;
+                    }
+                    else
+                    {
+                        if (myUSB.DevicePathName.IndexOf(productID) > 0)
+                        {
+                            devices.Add(myUSB.DevicePathName);
+                            numberOfDevices++;
+                        }
+                    }
                 }
                 device_count++;
             }
