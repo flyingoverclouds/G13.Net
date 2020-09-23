@@ -44,8 +44,23 @@ namespace testLG13
                 Console.Write("   PRESSED KEYS: ");
                 foreach (var kn in g13state.GetPressedKeyNames())
                     Console.Write($" {kn} ");
-                Console.Write("                                                                                                      ");
+                Console.WriteLine("                                                                                                                  ");
+                if (g13state.IsKeyPressed(G13KeyMapping.MAP_KEY_G1))
+                    g.SetBacklightColor(255, 0, 0);
+                if (g13state.IsKeyPressed(G13KeyMapping.MAP_KEY_G2))
+                    g.SetBacklightColor(0,255, 0);
+                if (g13state.IsKeyPressed(G13KeyMapping.MAP_KEY_G3))
+                    g.SetBacklightColor(0, 0, 255);
+                if (g13state.IsKeyPressed(G13KeyMapping.MAP_KEY_M1))
+                    g.SetMKeyLight(G13KeyMapping.MAP_KEY_M1,true);
+                if (g13state.IsKeyPressed(G13KeyMapping.MAP_KEY_M2))
+                    g.SetMKeyLight(G13KeyMapping.MAP_KEY_M2, true);
+                if (g13state.IsKeyPressed(G13KeyMapping.MAP_KEY_M3))
+                    g.SetMKeyLight(G13KeyMapping.MAP_KEY_M3, true);
+                if (g13state.IsKeyPressed(G13KeyMapping.MAP_KEY_MR))
+                    g.SetMKeyLight(G13KeyMapping.MAP_KEY_MR, true);
             });
+
 
             g13engine.Connect();
 

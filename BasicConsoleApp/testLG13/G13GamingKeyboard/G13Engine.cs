@@ -184,5 +184,72 @@ namespace G13GamingKeyboard
             return g;
         }
 
+
+        /// <summary>
+        /// switch on/off led light for key M1, M2, M3 or MR
+        /// </summary>
+        /// <param name="MKeyCode"></param>
+        /// <param name="enlighted"></param>
+        public void SetMKeyLight(ushort MKeyCode,bool enlighted)
+        {
+            Console.WriteLine("SetMKeyLight() Not supported.");
+            return;
+            // TODO : add support for MKey light
+        }
+
+
+
+        /// <summary>
+        /// Change the color of keyboard led
+        /// </summary>
+        /// <param name="red">red level</param>
+        /// <param name="green">red level</param>
+        /// <param name="blue">red level</param>
+        public void SetBacklightColor(byte red, byte green,byte blue)
+        {
+            Console.WriteLine("SetBacklightColor() Not supported.");
+            return;
+
+            if (usbInterface == null) // TODO : return exception if not connected.
+            {
+                Console.WriteLine("Not connected to G13 keyboard.");
+                return;
+            }
+            var g13command = new byte[5] { 5, red, green, blue, 0 };
+
+            if (!usbInterface.write(g13command))
+            {
+                // TODO : return exception if send fail.
+                Console.WriteLine("Unable to send command to G13 device");
+            }
+
+            /*
+                int error;
+	            unsigned char usb_data[] = { 5, 0, 0, 0, 0 };
+             	usb_data[1] = red;
+	            usb_data[2] = green;
+	            usb_data[3] = blue;
+
+	            error = libusb_control_transfer(
+                        handle,
+			            LIBUSB_REQUEST_TYPE_CLASS | LIBUSB_RECIPIENT_INTERFACE, // the request type field for the setup packet
+                            // from libusb.h : LIBUSB_REQUEST_TYPE_CLASS = (0x01 << 5) 
+                            // from libusb.h : LIBUSB_RECIPIENT_INTERFACE = 0x01
+                        9,          // the request field for the setup packet
+                        0x307,      // the value field for the setup packet
+                        0,          // the index field for the setup packet
+			            usb_data,   // a suitably-sized data buffer for either input or output (depending on direction bits within bmRequestType)
+                        5,          // the length field for the setup packet. The data buffer should be at least this size.
+                        1000        // timeout (in millseconds) that this function should wait before giving up due to no response being received. For an unlimited timeout, use value 0.
+                );
+	            if (error != 5) {
+		            G13_LOG( error, "Problem sending data" );
+		            return;
+	            }
+             * 
+             */
+
+        }
+
     }
 }

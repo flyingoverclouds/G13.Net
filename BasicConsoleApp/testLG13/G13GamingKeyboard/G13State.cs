@@ -29,7 +29,7 @@ namespace G13GamingKeyboard
     //       M3  M2  M1  US4 US3 US2 US1 RBUT_LEFT
 
     // [7] : 0   0   0   0   0   0   0   0
-    //       1?  |__/        |   |   |   M4
+    //       1?  |__/        |   |   |   MR
     //           |B_LIGHT    |   |   |CLIC_LEFT
     //                       |   |CLIC_BOTTOM
     //                       |CLICK_STICK
@@ -41,41 +41,41 @@ namespace G13GamingKeyboard
 
         // high byte : index in raw data
         // low byte : binary mask for key bit
-        const ushort MAP_KEY_G1  = 0x0301;
-        const ushort MAP_KEY_G2  = 0x0302;
-        const ushort MAP_KEY_G3  = 0x0304;
-        const ushort MAP_KEY_G4  = 0x0308;
-        const ushort MAP_KEY_G5  = 0x0310;
-        const ushort MAP_KEY_G6  = 0x0320;
-        const ushort MAP_KEY_G7  = 0x0340;
-        const ushort MAP_KEY_G8  = 0x0380;
-        const ushort MAP_KEY_G9  = 0x0401;
-        const ushort MAP_KEY_G10 = 0x0402;
-        const ushort MAP_KEY_G11 = 0x0404;
-        const ushort MAP_KEY_G12 = 0x0408;
-        const ushort MAP_KEY_G13 = 0x0410;
-        const ushort MAP_KEY_G14 = 0x0420;
-        const ushort MAP_KEY_G15 = 0x0440;
-        const ushort MAP_KEY_G16 = 0x0480;
-        const ushort MAP_KEY_G17 = 0x0501;
-        const ushort MAP_KEY_G18 = 0x0502;
-        const ushort MAP_KEY_G19 = 0x0504;
-        const ushort MAP_KEY_G20 = 0x0508;
-        const ushort MAP_KEY_G21 = 0x0510;
-        const ushort MAP_KEY_G22 = 0x0520;
-        const ushort MAP_KEY_M1  = 0x0620; // memory button M1
-        const ushort MAP_KEY_M2  = 0x0640; // memory button M2
-        const ushort MAP_KEY_M3  = 0x0680; // memory button M3
-        const ushort MAP_KEY_M4  = 0x0701; // memory button M4
-        const ushort MAP_KEY_US1 = 0x0602; // under screen button 1
-        const ushort MAP_KEY_US2 = 0x0604; // under screen button 2
-        const ushort MAP_KEY_US3 = 0x0608; // under screen button 3
-        const ushort MAP_KEY_US4 = 0x0610; // under screen button 4
-        const ushort MAP_KEY_RBLIGHT = 0x0760; // Rond button right (Light switch)
-        const ushort MAP_KEY_RBLEFT  = 0x0601; // Rond button left
-        const ushort MAP_KEY_PAGEUP   = 0x0702; // Button left of joystick
-        const ushort MAP_KEY_PAGEDOWN = 0x0704; // Button bottom of joystick
-        const ushort MAP_KEY_CLICKSTICK  = 0x0708; // Button Stick pressed
+        public const ushort MAP_KEY_G1  = 0x0301;
+        public const ushort MAP_KEY_G2  = 0x0302;
+        public const ushort MAP_KEY_G3  = 0x0304;
+        public const ushort MAP_KEY_G4  = 0x0308;
+        public const ushort MAP_KEY_G5  = 0x0310;
+        public const ushort MAP_KEY_G6  = 0x0320;
+        public const ushort MAP_KEY_G7  = 0x0340;
+        public const ushort MAP_KEY_G8  = 0x0380;
+        public const ushort MAP_KEY_G9  = 0x0401;
+        public const ushort MAP_KEY_G10 = 0x0402;
+        public const ushort MAP_KEY_G11 = 0x0404;
+        public const ushort MAP_KEY_G12 = 0x0408;
+        public const ushort MAP_KEY_G13 = 0x0410;
+        public const ushort MAP_KEY_G14 = 0x0420;
+        public const ushort MAP_KEY_G15 = 0x0440;
+        public const ushort MAP_KEY_G16 = 0x0480;
+        public const ushort MAP_KEY_G17 = 0x0501;
+        public const ushort MAP_KEY_G18 = 0x0502;
+        public const ushort MAP_KEY_G19 = 0x0504;
+        public const ushort MAP_KEY_G20 = 0x0508;
+        public const ushort MAP_KEY_G21 = 0x0510;
+        public const ushort MAP_KEY_G22 = 0x0520;
+        public const ushort MAP_KEY_M1  = 0x0620; // memory button M1
+        public const ushort MAP_KEY_M2  = 0x0640; // memory button M2
+        public const ushort MAP_KEY_M3  = 0x0680; // memory button M3
+        public const ushort MAP_KEY_MR  = 0x0701; // memory button M4
+        public const ushort MAP_KEY_US1 = 0x0602; // under screen button 1
+        public const ushort MAP_KEY_US2 = 0x0604; // under screen button 2
+        public const ushort MAP_KEY_US3 = 0x0608; // under screen button 3
+        public const ushort MAP_KEY_US4 = 0x0610; // under screen button 4
+        public const ushort MAP_KEY_RBLIGHT = 0x0760; // Rond button right (Light switch)
+        public const ushort MAP_KEY_RBLEFT  = 0x0601; // Rond button left
+        public const ushort MAP_KEY_PAGEUP   = 0x0702; // Button left of joystick
+        public const ushort MAP_KEY_PAGEDOWN = 0x0704; // Button bottom of joystick
+        public const ushort MAP_KEY_CLICKSTICK  = 0x0708; // Button Stick pressed
 
         static readonly ushort[] _ALL_KEYS_MAPPING;
         static public ushort[] ALL_KEYS_MAPPING
@@ -118,7 +118,7 @@ namespace G13GamingKeyboard
                 MAP_KEY_M1,
                 MAP_KEY_M2,
                 MAP_KEY_M3,
-                MAP_KEY_M4,
+                MAP_KEY_MR,
                 MAP_KEY_US1,
                 MAP_KEY_US2,
                 MAP_KEY_US3,
@@ -155,7 +155,7 @@ namespace G13GamingKeyboard
             g13KeyMap.Add(nameof(MAP_KEY_M1), MAP_KEY_M1);
             g13KeyMap.Add(nameof(MAP_KEY_M2), MAP_KEY_M2);
             g13KeyMap.Add(nameof(MAP_KEY_M3), MAP_KEY_M3);
-            g13KeyMap.Add(nameof(MAP_KEY_M4), MAP_KEY_M4);
+            g13KeyMap.Add(nameof(MAP_KEY_MR), MAP_KEY_MR);
             g13KeyMap.Add(nameof(MAP_KEY_US1), MAP_KEY_US1);
             g13KeyMap.Add(nameof(MAP_KEY_US2), MAP_KEY_US2);
             g13KeyMap.Add(nameof(MAP_KEY_US3), MAP_KEY_US3);
@@ -176,6 +176,11 @@ namespace G13GamingKeyboard
 
         public List<ushort> PressedKey { get; private set; }
 
+        /// <summary>
+        /// return the pressed state of a key
+        /// </summary>
+        /// <param name="g13KeyScanCode">Key code (G13KeyMapping.MAP_KEY_* constant) </param>
+        /// <returns>true if key is pressed, false, otherwise</returns>
         public bool IsKeyPressed(ushort g13KeyScanCode)
         {
             for (int n = 0; n < PressedKey.Count; n++)
