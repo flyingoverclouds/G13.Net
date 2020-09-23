@@ -1,2 +1,0 @@
-﻿this basic USBHIDDRIVER project come from http://www.florian-leitner.de/index.php/projects/usb-hid-driver-library/
-
