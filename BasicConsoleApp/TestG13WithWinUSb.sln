@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testG13WithWinUsb", "testG13WithWinUsb\testG13WithWinUsb.csproj", "{67954426-84E1-4B22-B308-FA46D483F222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinUSB", "WinUSB\WinUSB.csproj", "{E690D064-F889-4A93-9855-E7D3A036563C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67954426-84E1-4B22-B308-FA46D483F222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67954426-84E1-4B22-B308-FA46D483F222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67954426-84E1-4B22-B308-FA46D483F222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67954426-84E1-4B22-B308-FA46D483F222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E690D064-F889-4A93-9855-E7D3A036563C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E690D064-F889-4A93-9855-E7D3A036563C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E690D064-F889-4A93-9855-E7D3A036563C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E690D064-F889-4A93-9855-E7D3A036563C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7ABF2C6B-96DE-4B98-AC57-2944EB85F167}
+	EndGlobalSection
+EndGlobal
