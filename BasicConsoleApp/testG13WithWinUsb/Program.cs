@@ -10,7 +10,7 @@ namespace testG13WithWinUsb
         {
             Console.WriteLine("Test WinUSB!");
 
-                        
+            
         }
     }
 }

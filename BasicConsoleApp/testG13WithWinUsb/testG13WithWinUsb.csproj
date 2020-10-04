@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="PInvoke.SetupApi" Version="0.6.49" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WinUSB\WinUSB.csproj" />
   </ItemGroup>
 
